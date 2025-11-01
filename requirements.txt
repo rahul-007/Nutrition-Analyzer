@@ -1,5 +1,6 @@
 streamlit
 langchain
-langchain-google-genai
 langchain_core
+langchain-google-genai
 google-generativeai
+
