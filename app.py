@@ -1,6 +1,5 @@
 import streamlit as st
-import google.generativeai as genai
-from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain_groq import ChatGroq
 from langchain.schema import HumanMessage, SystemMessage
 import base64
 import os
@@ -19,10 +18,8 @@ uploaded_file = st.file_uploader("Upload a food image", type=["jpg", "jpeg", "pn
 # LLM CONFIGURATION
 # ------------------------------
 
-os.environ["GOOGLE_API_KEY"] = st.secrets["GOOGLE_API_KEY"]
-genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
-
-llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash")
+groq_api_key = st.secrets["GROQ_API_KEY"]
+llm = ChatGroq(model="Llama3-70b-8192",groq_api_key=groq_api_key)
 
 nutrition_prompt = """
 You are a certified nutritionist and food recognition expert.
@@ -93,6 +90,7 @@ if uploaded_file:
     # Display nicely
     st.markdown("---")
     st.markdown(result)
+
 
 
 
