@@ -21,6 +21,14 @@ uploaded_file = st.file_uploader("Upload a food image", type=["jpg", "jpeg", "pn
 groq_api_key = st.secrets["GROQ_API_KEY"]
 llm = ChatGroq(model="meta-llama/llama-4-scout-17b-16e-instruct",groq_api_key=groq_api_key)
 
+# LangSmith Monitoring Setup
+LANGSMITH_API_KEY = st.secrets.get("LANGSMITH_API_KEY")
+
+if LANGSMITH_API_KEY:
+    os.environ["LANGSMITH_API_KEY"] = LANGSMITH_API_KEY
+    os.environ["LANGCHAIN_TRACING_V2"] = "true"
+    os.environ["LANGCHAIN_PROJECT"] = "AI Nutrition Analyzer"
+
 nutrition_prompt = """
 You are a certified nutritionist and food recognition expert.
 You will be provided with an image of food.
@@ -97,6 +105,7 @@ if uploaded_file:
     # Display nicely
     st.markdown("---")
     st.markdown(result)
+
 
 
 
