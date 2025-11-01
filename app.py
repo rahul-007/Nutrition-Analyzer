@@ -19,7 +19,7 @@ uploaded_file = st.file_uploader("Upload a food image", type=["jpg", "jpeg", "pn
 # ------------------------------
 
 groq_api_key = st.secrets["GROQ_API_KEY"]
-llm = ChatGroq(model="Llama3-70b-8192",groq_api_key=groq_api_key)
+llm = ChatGroq(model="meta-llama/llama-4-scout-17b-16e-instruct",groq_api_key=groq_api_key)
 
 nutrition_prompt = """
 You are a certified nutritionist and food recognition expert.
@@ -84,12 +84,13 @@ if uploaded_file:
     ]
 
     # Run the model
-    response = llm(messages)
+    response = llm.invoke(messages)
     result = response.content
 
     # Display nicely
     st.markdown("---")
     st.markdown(result)
+
 
 
 
