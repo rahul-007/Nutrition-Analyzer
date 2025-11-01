@@ -1,7 +1,7 @@
 streamlit
+pydantic
 langchain
 langchain_community
+langchain_core
 langchain-google-genai
 google-generativeai
-
-
