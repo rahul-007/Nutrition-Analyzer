@@ -1,6 +1,6 @@
 import streamlit as st
-from langchain_google_genai import ChatGoogleGenerativeAI
 import google.generativeai as genai
+from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain.schema import HumanMessage, SystemMessage
 import base64
 import os
@@ -93,5 +93,6 @@ if uploaded_file:
     # Display nicely
     st.markdown("---")
     st.markdown(result)
+
 
 
