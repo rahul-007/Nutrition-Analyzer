@@ -3,6 +3,6 @@ pydantic
 langchain
 langchain_community
 langchain-core
-langchain-google-genai
-google-generativeai
+langchain_groq
+
 
