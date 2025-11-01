@@ -49,7 +49,7 @@ Output format (in plain text, not JSON):
 • ...
 ### ⚖️ Portion Estimates:
 • ...
-### 🍎 Nutrition Estimates:
+### 🍎 Nutrition Estimates: create a table and mention below information in rows:
 • Protein: ... g
 • Carbs: ... g
 • Fats: ... g
@@ -97,6 +97,7 @@ if uploaded_file:
     # Display nicely
     st.markdown("---")
     st.markdown(result)
+
 
 
 
