@@ -75,12 +75,19 @@ if uploaded_file:
     image_b64 = base64.b64encode(image_bytes).decode()
 
     # Build LLM message
-    messages = [
-        SystemMessage(content=nutrition_prompt),
-        HumanMessage(content=[
-            {"type": "text", "text": "Analyze this meal image and provide nutritional insights."},
-            {"type": "image_url", "image_url": f"data:image/jpeg;base64,{image_b64}"}
-        ])
+    messages=[
+        {
+            "role": "user",
+            "content": [
+                {"type": "text", "text": nutrition_prompt},
+                {
+                    "type": "image_url",
+                    "image_url": {
+                        "url": f"data:image/jpeg;base64,{image_b64}",
+                    },
+                },
+            ],
+        }
     ]
 
     # Run the model
@@ -90,6 +97,7 @@ if uploaded_file:
     # Display nicely
     st.markdown("---")
     st.markdown(result)
+
 
 
 
