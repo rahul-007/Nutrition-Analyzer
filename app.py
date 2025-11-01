@@ -1,6 +1,6 @@
 import streamlit as st
 from langchain_groq import ChatGroq
-from langchain.schema import HumanMessage, SystemMessage
+from langchain.messages import HumanMessage, SystemMessage
 import base64
 import os
 
@@ -90,6 +90,7 @@ if uploaded_file:
     # Display nicely
     st.markdown("---")
     st.markdown(result)
+
 
 
 
